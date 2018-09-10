@@ -17,6 +17,8 @@ echo DEF CHANNEL(TO.TMXREPO01.TMX01) \
 		TRPTYPE(TCP) \
 		CONNAME('fintecheando-wmq-repo-01.bitnamiapp.com(16000)') \
 		CLUSTER(TMX01) >%QMGR%.in
+		
+echo DEF LISTENER(LSTR.16000) TRTYPE(TCP) PORT (16000) CONTROL(QMGR) >%QMGR%.in
 
 runmqsc %QMGR% <%QMGR%.in >%QMGR%.out
 
