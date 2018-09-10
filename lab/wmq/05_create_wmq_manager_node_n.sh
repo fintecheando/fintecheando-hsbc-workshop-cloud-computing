@@ -9,13 +9,13 @@ echo "strmqm $QMGR"
 
 echo DEF CHANNEL(TO.%QMGR%.TMX01) \
 		CHLTYPE(CLUSRCVR) TRPTYPE(TCP) \
-		CONNAME('CONNAME()') \
+		CONNAME('fintecheando-wmq-repo-01.bitnamiapp.com(16000)') \
 		CLUSTER(TMX01) >%QMGR%.in
 		
 echo DEF CHANNEL(TO.TMXREPO01.TMX01) \
 		CHLTYPE(CLUSSDR) \
 		TRPTYPE(TCP) \
-		CONNAME('CONNAME(16000)') \
+		CONNAME('fintecheando-wmq-repo-01.bitnamiapp.com(16000)') \
 		CLUSTER(TMX01) >%QMGR%.in
 
 runmqsc %QMGR% <%QMGR%.in >%QMGR%.out
