@@ -1,1 +1,7 @@
+#Removing the QM from the cluster
 
+strmqm XXXX
+ALTER CHANNEL(TO.XXXX.TMX01) CLUSTER('')
+ALTER CHANNEL(TO.TMXREPO01.TMX01) CLUSTER('')
+
+end
