@@ -1,19 +1,14 @@
 #Creating QM in the cluster
+QMGR=$(hostname | tr -dc '[:alnum:]\n\r' | tail -c 8 | tr '[:lower:]' '[:upper:]')
+#Creating QM in the cluster
 
-crtmqm -u SYSTEM.XXXX.DEAD.LETTER.QUEUE XXXX
-strmqm XXXX
-runmqsc XXXX
+echo "crtmqm -u SYSTEM.$QMGR.DEAD.LETTER.QUEUE $QMGR"
+echo "strmqm $QMGR"
 
-DEFINE CHANNEL(TO.XXXX.TMX01) +
-	CHLTYPE(CLUSRCVR) +
-	TRPTYPE(TCP) +
-	CONNAME('CONNAME()') + 
-	CLUSTER(TMX01)
+echo DEF CHANNEL(TO.%QMGR%.TMX01) CHLTYPE(CLUSRCVR) TRPTYPE(TCP) CONNAME('CONNAME()') CLUSTER(TMX01) >%QMGR%.in
+echo DEF CHANNEL(TO.TMXREPO01.TMX01) CHLTYPE(CLUSSDR) TRPTYPE(TCP) CONNAME('CONNAME(16000)') CLUSTER(TMX01) >%QMGR%.in
 
-DEFINE CHANNEL(TO.TMXREPO01.TMX01) + 
-	CHLTYPE(CLUSSDR) + 
-	TRPTYPE(TCP) + 
-	CONNAME('CONNAME(16000)') +
-	CLUSTER(TMX01)
-	
-end
+runmqsc %QMGR% <%QMGR%.in >%QMGR%.out
+type %QMGR%.out
+
+pause
