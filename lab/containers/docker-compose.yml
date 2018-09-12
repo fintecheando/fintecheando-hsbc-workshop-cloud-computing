@@ -33,10 +33,12 @@ services:
     image: com.mx.fintecheando.demo.hsbc.login.mq.0.0.1
     restart: always
     environment:
-      MQ_DEV: true
+      - LICENSE=accept
+      - MQ_QMGR_NAME=QM1
     healthcheck:
-      test:  curl -u admin:admin -s https://localhost:9443/ibmmq/console/
+      test:   dspmq
       interval: 5s
       retries: 20  
     networks:
       - fincore
+
