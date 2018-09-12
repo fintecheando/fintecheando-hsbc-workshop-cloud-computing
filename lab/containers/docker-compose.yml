@@ -24,7 +24,7 @@ services:
       MYSQL_ROOT_PASSWORD: admin
       MYSQL_DATABASE: login
     healthcheck:
-      test:  mysqladmin --user=root --password=mysql ping -h localhost
+      test:  mysqladmin --user=root --password=admin ping -h localhost
       interval: 5s
       retries: 20
     networks:
