@@ -13,7 +13,7 @@ https://medium.com/@gustavo.ponce.ch/spring-boot-spring-mvc-spring-security-mysq
 3. mvn clean
 4. mvn clean install
 5. Go to the target folder
-6. java -jar demo-0.0.1-SNAPSHOT.jar
+6. java -jar login-0.0.1-SNAPSHOT.jar 
 
 7. Test these links
 
