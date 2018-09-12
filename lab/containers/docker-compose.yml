@@ -21,7 +21,7 @@ services:
     image: com.mx.fintecheando.demo.hsbc.login.db.0.0.1
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_ROOT_PASSWORD: admin
       MYSQL_DATABASE: login
     healthcheck:
       test:  mysqladmin --user=root --password=mysql ping -h localhost
