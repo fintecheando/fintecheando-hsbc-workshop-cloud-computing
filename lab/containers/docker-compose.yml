@@ -1,0 +1,42 @@
+version: "2.2"
+
+networks:
+  fincore:
+    driver: bridge
+services:  
+  login-app-server:
+    image: com.mx.fintecheando.demo.hsbc.login.app.0.0.1
+    restart: always
+    ports:
+      - 8443:8443
+      - 8080:8080
+    networks:
+      - fincore
+    depends_on:
+      login-db-server:
+        condition: service_healthy
+      login-wmq-server:
+        condition: service_healthy    
+  login-db-server:
+    image: com.mx.fintecheando.demo.hsbc.login.db.0.0.1
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: login
+    healthcheck:
+      test:  mysqladmin --user=root --password=mysql ping -h localhost
+      interval: 5s
+      retries: 20
+    networks:
+      - fincore  
+  login-wmq-server:
+    image: com.mx.fintecheando.demo.hsbc.login.mq.0.0.1
+    restart: always
+    environment:
+      MQ_DEV: true
+    healthcheck:
+      test:  curl -u admin:admin -s https://localhost:9443/ibmmq/console/
+      interval: 5s
+      retries: 20  
+    networks:
+      - fincore
