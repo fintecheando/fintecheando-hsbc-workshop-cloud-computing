@@ -1,0 +1,55 @@
+version: "2.2"
+
+networks:
+  fincore:
+    driver: bridge
+services:  
+  login-app-server:
+    image: 12213-domain
+    restart: always    
+    environment:
+      ADMIN_PASSWORD: Fintecheando01
+      CUSTOM_DOMAIN_NAME: 12213-domain
+    env_file: ./domain.properties  
+    ports:
+      - 7001:7001
+      - 8001:8001
+    volumes:
+      - /tmp:/u01/oracle/user_projects
+      - /home/victor/git/fintecheando-hsbc-workshop-cloud-computing/lab/app/bin:/u01/oracle/user_projects/autodeploy  
+    networks:
+      - fincore
+    depends_on:
+      login-db-server:
+        condition: service_healthy
+      login-wmq-server:
+        condition: service_healthy      
+  login-db-server:
+    image: com.mx.fintecheando.demo.hsbc.login.db.5.5.0.0.1
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: login
+    healthcheck:
+      test:  mysqladmin --user=root --password=admin ping -h localhost
+      interval: 5s
+      retries: 20
+    networks:
+      - fincore  
+  login-wmq-server:
+    image: com.mx.fintecheando.demo.hsbc.login.mq.be.0.0.1
+    restart: always
+    environment:
+      - LICENSE=accept
+      - MQ_QMGR_NAME=QM1
+    ports:
+      - 1414:1414
+      - 9443:9443  
+      - 9157:9157      
+    healthcheck:
+      test:   dspmq
+      interval: 5s
+      retries: 20  
+    networks:
+      - fincore
+

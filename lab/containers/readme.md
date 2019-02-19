@@ -14,6 +14,12 @@ $ docker-compose up
 $ docker build -t com.mx.fintecheando.demo.hsbc.login.app.0.0.1 .
 ```
 
+1.1 Build the Login App image with Weblogic
+
+```bash
+$ docker build -t com.mx.fintecheando.demo.wl.hsbc.login.app.0.0.1 .
+```
+
 2. Build the DB image 
 
 ```bash

@@ -1,12 +1,13 @@
+/home/victor/git/fintecheando-hsbc-workshop-cloud-computing/lab/app/src/main/java/com/gpch/login/model/Role.java
+/home/victor/git/fintecheando-hsbc-workshop-cloud-computing/lab/app/src/main/java/com/gpch/login/LoginApplication.java
+/home/victor/git/fintecheando-hsbc-workshop-cloud-computing/lab/app/src/main/java/com/gpch/login/repository/RoleRepository.java
+/home/victor/git/fintecheando-hsbc-workshop-cloud-computing/lab/app/src/main/java/com/gpch/login/ServletInitializer.java
 /home/victor/git/fintecheando-hsbc-workshop-cloud-computing/lab/app/src/main/java/com/gpch/login/wmq/Sender.java
 /home/victor/git/fintecheando-hsbc-workshop-cloud-computing/lab/app/src/main/java/com/gpch/login/service/UserService.java
 /home/victor/git/fintecheando-hsbc-workshop-cloud-computing/lab/app/src/main/java/com/gpch/login/wmq/Listener.java
 /home/victor/git/fintecheando-hsbc-workshop-cloud-computing/lab/app/src/main/java/com/gpch/login/configuration/IbmWmqConfiguration.java
 /home/victor/git/fintecheando-hsbc-workshop-cloud-computing/lab/app/src/main/java/com/gpch/login/model/User.java
 /home/victor/git/fintecheando-hsbc-workshop-cloud-computing/lab/app/src/main/java/com/gpch/login/repository/UserRepository.java
-/home/victor/git/fintecheando-hsbc-workshop-cloud-computing/lab/app/src/main/java/com/gpch/login/model/Role.java
 /home/victor/git/fintecheando-hsbc-workshop-cloud-computing/lab/app/src/main/java/com/gpch/login/configuration/WebMvcConfig.java
-/home/victor/git/fintecheando-hsbc-workshop-cloud-computing/lab/app/src/main/java/com/gpch/login/LoginApplication.java
-/home/victor/git/fintecheando-hsbc-workshop-cloud-computing/lab/app/src/main/java/com/gpch/login/repository/RoleRepository.java
 /home/victor/git/fintecheando-hsbc-workshop-cloud-computing/lab/app/src/main/java/com/gpch/login/controller/LoginController.java
 /home/victor/git/fintecheando-hsbc-workshop-cloud-computing/lab/app/src/main/java/com/gpch/login/configuration/SecurityConfiguration.java
